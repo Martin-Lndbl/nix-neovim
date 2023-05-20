@@ -2,7 +2,9 @@ self:
 { pkgs
 , lib
 , config
-, vimconf
+, vimconf ? {
+    colorscheme = "spacecamp";
+  }
 , ...
 }:
 {
