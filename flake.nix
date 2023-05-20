@@ -12,6 +12,5 @@
     in
     {
       homeManagerModules.default = import ./default.nix self;
-      homeManagerModules.transparent = import ./default.nix self;
     };
 }
