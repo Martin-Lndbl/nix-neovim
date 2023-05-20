@@ -11,6 +11,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in 
     {
-      neovim = ./default.nix;
+      neovim = import ./default.nix;
     };
 }
