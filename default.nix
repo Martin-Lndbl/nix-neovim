@@ -5,6 +5,7 @@ self:
 , ...
 }:
 {
+ programs.neovim =  {
   enable = true;
   vimAlias = true;
   extraConfig = builtins.readFile ./neovim.vim;
@@ -23,5 +24,5 @@ self:
     rust-analyzer
     texlab
   ];
+};
 }
-

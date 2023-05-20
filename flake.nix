@@ -3,14 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  }; 
+  };
 
   outputs = { self, nixpkgs, ... }:
-    let 
+    let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in 
+    in
     {
-      homeManagerModules = ./default.nix;
+      homeManagerModules.default = import ./default.nix self;
+      homeManagerModules.transparent = import ./default.nix {
+        inherit self;
+        config.colorscheme = "spacecamp_transparent";
+      };
     };
 }

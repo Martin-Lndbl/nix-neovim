@@ -1,5 +1,4 @@
 { config
-, lib
 , pkgs
 , ...
 }:
@@ -74,7 +73,7 @@ let
     languages;
 
 in
-[
+with pkgs.vimPlugins; [
 
   {
     plugin = nerdtree;
