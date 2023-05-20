@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Homemanager neovim module";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -11,6 +11,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in 
     {
-      neovim = import ./default.nix self;
+      homeManagerModules = import ./default.nix self;
     };
 }
