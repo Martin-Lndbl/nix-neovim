@@ -1,4 +1,7 @@
-{ pkgs }:
+self: { config
+      , lib
+      , pkgs
+      }:
 
 let
   syntax-nix = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
@@ -70,131 +73,132 @@ let
     languages;
 
 in
-
 {
-  enable = true;
-  vimAlias = true;
-  extraConfig = builtins.readFile ./neovim.vim;
-  extraLuaConfig = builtins.readFile ./neovim.lua;
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    extraConfig = builtins.readFile ./neovim.vim;
+    extraLuaConfig = builtins.readFile ./neovim.lua;
 
-  plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs.vimPlugins; [
 
-    {
-      plugin = nerdtree;
-      config = builtins.readFile ./plugins/nerdtree.vim;
-    }
+      {
+        plugin = nerdtree;
+        config = builtins.readFile ./plugins/nerdtree.vim;
+      }
 
-    {
-      plugin = undotree;
-      config = builtins.readFile ./plugins/undotree.vim;
-    }
+      {
+        plugin = undotree;
+        config = builtins.readFile ./plugins/undotree.vim;
+      }
 
-    {
-      plugin = tagbar;
-      config = builtins.readFile ./plugins/tagbar.vim;
-    }
+      {
+        plugin = tagbar;
+        config = builtins.readFile ./plugins/tagbar.vim;
+      }
 
-    {
-      plugin = telescope-nvim;
-      type = "lua";
-      config = builtins.readFile ./plugins/telescope.lua;
-    }
+      {
+        plugin = telescope-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/telescope.lua;
+      }
 
-    {
-      plugin = telescope-ctags-outline;
-      type = "lua";
-      config = builtins.readFile ./plugins/telescope-ctags-outline.lua;
-    }
+      {
+        plugin = telescope-ctags-outline;
+        type = "lua";
+        config = builtins.readFile ./plugins/telescope-ctags-outline.lua;
+      }
 
-    {
-      plugin = nvim-treesitter;
-      type = "lua";
-      config = builtins.readFile ./plugins/treesitter.lua +
-        tree-sitter-languages [
-          /* "bash" */
-          "c"
-          "cpp"
-          "css"
-          "html"
-          "graphql"
-          "javascript"
-          "json"
-          "lua"
-          /* "make" */
-          "markdown"
-          "nix"
-          "rust"
-          "java"
-          "toml"
-          "yaml"
-          "latex"
-        ];
-    }
+      {
+        plugin = nvim-treesitter;
+        type = "lua";
+        config = builtins.readFile ./plugins/treesitter.lua +
+          tree-sitter-languages [
+            /* "bash" */
+            "c"
+            "cpp"
+            "css"
+            "html"
+            "graphql"
+            "javascript"
+            "json"
+            "lua"
+            /* "make" */
+            "markdown"
+            "nix"
+            "rust"
+            "java"
+            "toml"
+            "yaml"
+            "latex"
+          ];
+      }
 
-    syntax-nix
-    i3config-vim
-    typescript-vim
+      syntax-nix
+      i3config-vim
+      typescript-vim
 
-    {
-      plugin = null-ls-nvim;
-      type = "lua";
-      config = builtins.readFile ./plugins/null-ls.lua;
-    }
+      {
+        plugin = null-ls-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/null-ls.lua;
+      }
 
-    {
-      plugin = vim-rooter;
-      config = builtins.readFile ./plugins/rooter.vim;
-    }
+      {
+        plugin = vim-rooter;
+        config = builtins.readFile ./plugins/rooter.vim;
+      }
 
-    diff-fold
-    BufOnly-vim
+      diff-fold
+      BufOnly-vim
 
-    fugitive
+      fugitive
 
-    vim-commentary
-    vim-indent-object
+      vim-commentary
+      vim-indent-object
 
-    {
-      plugin = vdebug;
-      config = builtins.readFile ./plugins/vdebug.vim;
-    }
+      {
+        plugin = vdebug;
+        config = builtins.readFile ./plugins/vdebug.vim;
+      }
 
-    delimitMate
-    vim-css-color
-    /* awesome-vim-colorschemes */
-    spacecamp
+      delimitMate
+      vim-css-color
+      /* awesome-vim-colorschemes */
+      spacecamp
 
-    vim-devicons
+      vim-devicons
 
-    {
-      plugin = nvim-lspconfig;
-      type = "lua";
-      config = builtins.readFile ./plugins/lsp-config.lua;
-    }
-    {
-      plugin = nvim-compe;
-      type = "lua";
-      config = builtins.readFile ./plugins/nvim-compe.lua;
-    }
-    {
-      plugin = lsp_signature-nvim;
-      type = "lua";
-      config = builtins.readFile ./plugins/lsp-signature.lua;
-    }
-    vim-vsnip
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = builtins.readFile ./plugins/lsp-config.lua;
+      }
+      {
+        plugin = nvim-compe;
+        type = "lua";
+        config = builtins.readFile ./plugins/nvim-compe.lua;
+      }
+      {
+        plugin = lsp_signature-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/lsp-signature.lua;
+      }
+      vim-vsnip
 
-    vim-ccls
-  ];
+      vim-ccls
+    ];
 
-  extraPackages = with pkgs; [
-    sumneko-lua-language-server
-    nodePackages.bash-language-server
-    nodePackages.pyright
-    nodePackages.eslint_d
-    nodePackages.prettier_d_slim
-    ccls
-    rnix-lsp
-    rust-analyzer
-    texlab
-  ];
+    extraPackages = with pkgs; [
+      sumneko-lua-language-server
+      nodePackages.bash-language-server
+      nodePackages.pyright
+      nodePackages.eslint_d
+      nodePackages.prettier_d_slim
+      ccls
+      rnix-lsp
+      rust-analyzer
+      texlab
+    ];
+  };
 }
