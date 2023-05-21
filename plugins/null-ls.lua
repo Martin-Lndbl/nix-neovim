@@ -13,9 +13,8 @@ nls.setup({
 		-- NOTE:
 		-- 1. both needs to be enabled to so prettier can apply eslint fixes
 		-- 2. prettierd should come first to prevent occassional race condition
-		-- fmt.prettierd,
+		fmt.prettierd,
 		fmt.eslint_d,
-    fmt.prettier_d,
 		-- fmt.prettier.with({
 		--     extra_args = {
 		--         '--tab-width=4',
