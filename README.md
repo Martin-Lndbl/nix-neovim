@@ -1,3 +1,20 @@
 # NeoVim Homemanager Module
 
-Include this Module into your [HomeManager](https://github.com/nix-community/home-manager) configuration. If you need an example, see the [flake](https://github.com/Martin-Lndbl/nix-home-manager/blob/main/flake.nix) of my HomeManager configuration.
+My way to keep synchronize my nvim config between different machines. But if you just get startet with nix and don't have a working nvim config, this might be helpful.
+
+Mind that only including this Module into your [HomeManager](https://github.com/nix-community/home-manager) configuration won't work, since this module is expecting an attribute for extra configuration (currently only the colorscheme). I will provide a documentation for this configuration, but there is no guarantee for it to be up-to-date.
+
+## Configuration
+
+### Example configuration
+Pass this attribute set as `extraSpecialArgs` to the `neovim.homeManagerModules.default` module.
+```nix
+extraSpecialArgs = {
+  vimconf = {
+    colorscheme = "spacecamp"; 
+  };
+};
+```
+
+### Configuration options
+- colorscheme: `[ spacecamp spacecamp_lite spacecamp_transparent ]`
