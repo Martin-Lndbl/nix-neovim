@@ -81,6 +81,7 @@ self:
       ccls
       rnix-lsp
       rust-analyzer
+      rustfmt
       texlab
     ];
   };

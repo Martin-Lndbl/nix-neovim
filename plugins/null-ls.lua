@@ -15,14 +15,6 @@ nls.setup({
 		-- 2. prettierd should come first to prevent occassional race condition
 		fmt.prettierd,
 		fmt.eslint_d,
-		-- fmt.prettier.with({
-		--     extra_args = {
-		--         '--tab-width=4',
-		--         '--trailing-comma=es5',
-		--         '--end-of-line=lf',
-		--         '--arrow-parens=always',
-		--     },
-		-- }),
 		-- fmt.rustfmt,
 		-- fmt.stylua,
 		-- fmt.terraform_fmt,
