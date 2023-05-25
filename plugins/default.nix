@@ -64,22 +64,26 @@ let
 in
 with pkgs.vimPlugins; [
 
+  # File tree
   {
     plugin = nerdtree;
     config = import ./nerdtree.nix { inherit vimconf; };
   }
 
+  # Recent changes
   {
     plugin = undotree;
     config = import ./undotree.nix { inherit vimconf; };
   }
 
+  # Searching
   {
     plugin = telescope-nvim;
     type = "lua";
     config = import ./telescope.nix { inherit vimconf; };
   }
 
+  # Treesitter
   {
     plugin = nvim-treesitter;
     type = "lua";
@@ -109,53 +113,63 @@ with pkgs.vimPlugins; [
   i3config-vim
   typescript-vim
 
+  # Allow non-native lsp sources
   {
     plugin = null-ls-nvim;
     type = "lua";
     config = builtins.readFile ./null-ls.lua;
   }
 
-  {
-    plugin = vim-rooter;
-    config = builtins.readFile ./rooter.vim;
-  }
+  # Changes working dir to project root
+  # {
+  #   plugin = vim-rooter;
+  #   config = builtins.readFile ./rooter.vim;
+  # }
 
-  diff-fold
+  # Unload all buffers but current
   BufOnly-vim
 
+  # Git inside nvim
   fugitive
 
+  # Commentnig stuff out
   vim-commentary
-  vim-indent-object
 
-  {
-    plugin = vdebug;
-    config = builtins.readFile ./vdebug.vim;
-  }
+  # Debugger
+  # {
+  #   plugin = vdebug;
+  #   config = builtins.readFile ./vdebug.vim;
+  # }
 
+  # Autoclosing brackets
   delimitMate
+
+  # Color name highlighter
   vim-css-color
-  /* awesome-vim-colorschemes */
+
+  # Color scheme
   spacecamp
 
-  vim-devicons
-
+  # Native nvim Language-Server
   {
     plugin = nvim-lspconfig;
     type = "lua";
     config = builtins.readFile ./lsp-config.lua;
   }
-  {
-    plugin = nvim-compe;
-    type = "lua";
-    config = builtins.readFile ./nvim-compe.lua;
-  }
+  # Show method signatures
   {
     plugin = lsp_signature-nvim;
     type = "lua";
     config = builtins.readFile ./lsp-signature.lua;
   }
+  # Auto completion
+  {
+    plugin = nvim-compe;
+    type = "lua";
+    config = builtins.readFile ./nvim-compe.lua;
+  }
+
   vim-vsnip
 
   vim-ccls
-]
+] ++ vimconf.extraPlugins
