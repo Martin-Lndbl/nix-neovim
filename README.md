@@ -11,10 +11,12 @@ Pass this attribute set as `extraSpecialArgs` to the `neovim.homeManagerModules.
 ```nix
 extraSpecialArgs = {
   vimconf = {
+    leader = ",";
     colorscheme = "spacecamp"; 
   };
 };
 ```
 
 ### Configuration options
-- colorscheme: `[ spacecamp spacecamp_lite spacecamp_transparent ]`
+- leader: Custom mapleader. See [Neovim docs](https://neovim.io/doc/user/map.html).
+- colorscheme: `[ "spacecamp" "spacecamp_lite" "spacecamp_transparent" ]`
