@@ -163,6 +163,7 @@ with pkgs.vimPlugins; [
     config = builtins.readFile ./lsp-signature.lua;
   }
   # Auto completion
+  # TODO: Update this to nvim-cmp
   {
     plugin = nvim-compe;
     type = "lua";
