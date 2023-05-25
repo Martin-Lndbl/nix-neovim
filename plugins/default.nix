@@ -1,5 +1,6 @@
 { config
 , pkgs
+, vimconf
 , ...
 }:
 
@@ -70,7 +71,7 @@ with pkgs.vimPlugins; [
 
   {
     plugin = undotree;
-    config = builtins.readFile ./undotree.vim;
+    config = import ./undotree.nix { inherit vimconf; };
   }
 
   {

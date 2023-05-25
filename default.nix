@@ -21,8 +21,6 @@ self:
       set undolevels=1000
       set undoreload=1000
 
-      let mapleader=","
-
       colorscheme ${vimconf.colorscheme}
     '';
 
@@ -49,7 +47,7 @@ self:
       vim.opt.statusline = status_line()
     '';
     plugins = import ./plugins {
-      inherit pkgs config;
+      inherit pkgs config vimconf;
     };
     extraPackages = with pkgs; [
       sumneko-lua-language-server
