@@ -77,7 +77,7 @@ with pkgs.vimPlugins; [
   {
     plugin = telescope-nvim;
     type = "lua";
-    config = builtins.readFile ./telescope.lua;
+    config = import ./telescope.nix { inherit vimconf; };
   }
 
   {
