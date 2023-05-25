@@ -13,10 +13,18 @@ extraSpecialArgs = {
   vimconf = {
     leader = ",";
     colorscheme = "spacecamp"; 
+    extraPlugins = with pkgs.vimPlugins; [ awesome-vim-colorschemes ];
   };
 };
 ```
 
 ### Configuration options
-- leader: Custom mapleader. See [Neovim docs](https://neovim.io/doc/user/map.html).
-- colorscheme: `[ "spacecamp" "spacecamp_lite" "spacecamp_transparent" ]`
+- `leader: string`
+    - Custom mapleader.
+- `colorscheme: string`
+    - Vim colorscheme. 
+    - Preinstalled: `[ "spacecamp" "spacecamp_lite" "spacecamp_transparent" ]`
+    - See `extraPlugins` to add yours.
+- `extraPlugins: list`
+    - Add more plugins.
+    
