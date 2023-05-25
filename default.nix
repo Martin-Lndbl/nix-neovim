@@ -23,27 +23,6 @@ self:
 
       let mapleader=","
 
-      " Nerdtree
-      let g:NERDTreeDirArrowExpandable="+"
-      let g:NERDTreeDirArrowCollapsible="+"
-      nnoremap <leader>k :NERDTreeFocus<CR>
-      nnoremap <leader>t :NERDTreeToggle<CR>
-      nnoremap <leader>f :NERDTreeFind<CR>
-
-      " Undotree
-      nnoremap <leader>u :UndotreeToggle<CR>
-
-      " Tagbar
-      nnoremap <leader>b :TagbarToggle<CR>
-
-      " Telescope
-      nnoremap <leader>pp :lua require('telescope.builtin').builtin({ include_extensions = true })<CR>
-      nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<CR>
-      nnoremap <leader>ff <cmd>lua require('telescope.builtin').live_grap()<CR>
-      nnoremap <leader>ff <cmd>lua require('telescope.builtin').buffers()<CR>
-      nnoremap <leader>ff <cmd>lua require('telescope.builtin').help_tags()<CR>
-      nnoremap <silent> <leader>pc :call TelescopeCurrentComposerPackage()<CR>
-
       colorscheme ${vimconf.colorscheme}
     '';
 

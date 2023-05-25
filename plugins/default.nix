@@ -15,18 +15,6 @@ let
     };
   };
 
-  telescope-ctags-outline = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
-    pname = "telescope-ctags-outline";
-    version = "88767c2f79b4c10369e82dcd661af67182c00991";
-    src = pkgs.fetchFromGitHub {
-      owner = "fcying";
-      repo = "${pname}.nvim";
-      rev = version;
-      sha256 = "sha256-iYJRJI3WCQp1MA5t6eKBxEme9fVQn6LObB9KLalPzgM=";
-    };
-  };
-
-
   diff-fold = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
     pname = "diff-fold";
     version = "48b4505c1b6f14ceb4e4be732aad337147ef36cd";
@@ -86,20 +74,9 @@ with pkgs.vimPlugins; [
   }
 
   {
-    plugin = tagbar;
-    config = builtins.readFile ./tagbar.vim;
-  }
-
-  {
     plugin = telescope-nvim;
     type = "lua";
     config = builtins.readFile ./telescope.lua;
-  }
-
-  {
-    plugin = telescope-ctags-outline;
-    type = "lua";
-    config = builtins.readFile ./telescope-ctags-outline.lua;
   }
 
   {
