@@ -66,7 +66,7 @@ with pkgs.vimPlugins; [
 
   {
     plugin = nerdtree;
-    config = builtins.readFile ./nerdtree.vim;
+    config = import ./nerdtree.nix { inherit vimconf; };
   }
 
   {
