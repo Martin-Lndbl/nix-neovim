@@ -11,6 +11,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      homeManagerModules.default = import ./module.nix self;
+      homeManagerModules.default = import ./module.nix;
     };
 }

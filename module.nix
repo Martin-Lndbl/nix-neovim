@@ -1,4 +1,4 @@
-self: { pkgs, lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   cfg = config.programs.neovim.baseConfiguration;
@@ -16,7 +16,7 @@ with lib;
       description = "Vim colorscheme";
       type = types.str;
       default = "spacecamp";
-      example = "spacecamp-transparent";
+      example = "spacecamp_transparent";
     };
   };
   config = mkIf cfg.enable
