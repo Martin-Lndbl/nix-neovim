@@ -1,4 +1,4 @@
-{ vimconf }:
+{ leader, ... }:
 ''
   " Set cwd to NERDTree root
   let g:NERDTreeChDirMode = 2
@@ -23,6 +23,6 @@
   autocmd FileChangedShellPost * 
         \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded."| echohl None
 
-  nnoremap ${vimconf.leader}k :NERDTreeFocus<CR>
-  nnoremap ${vimconf.leader}t :NERDTreeToggle<CR>
+  nnoremap ${leader}k :NERDTreeFocus<CR>
+  nnoremap ${leader}t :NERDTreeToggle<CR>
 ''

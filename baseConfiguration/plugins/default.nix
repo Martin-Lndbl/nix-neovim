@@ -1,6 +1,5 @@
 { config
 , pkgs
-, vimconf
 , ...
 }:
 
@@ -62,25 +61,27 @@ let
     languages;
 
 in
-with pkgs.vimPlugins; [
+with pkgs.vimPlugins;
+with config.programs.neovim;
+[
 
   # File tree
   {
     plugin = nerdtree;
-    config = import ./nerdtree.nix { inherit vimconf; };
+    config = import ./nerdtree.nix baseConfiguration;
   }
 
   # Recent changes
   {
     plugin = undotree;
-    config = import ./undotree.nix { inherit vimconf; };
+    config = import ./undotree.nix baseConfiguration;
   }
 
   # Searching
   {
     plugin = telescope-nvim;
     type = "lua";
-    config = import ./telescope.nix { inherit vimconf; };
+    config = import ./telescope.nix baseConfiguration;
   }
 
   # Treesitter
@@ -88,25 +89,25 @@ with pkgs.vimPlugins; [
     plugin = nvim-treesitter;
     type = "lua";
     config = builtins.readFile ./treesitter.lua +
-      tree-sitter-languages [
-        /* "bash" */
-        "c"
-        "cpp"
-        "css"
-        "html"
-        "graphql"
-        "javascript"
-        "json"
-        "lua"
-        /* "make" */
-        "markdown"
-        "nix"
-        "rust"
-        "java"
-        "toml"
-        "yaml"
-        "latex"
-      ];
+    tree-sitter-languages [
+      /* "bash" */
+      "c"
+      "cpp"
+      "css"
+      "html"
+      "graphql"
+      "javascript"
+      "json"
+      "lua"
+      /* "make" */
+      "markdown"
+      "nix"
+      "rust"
+      "java"
+      "toml"
+      "yaml"
+      "latex"
+    ];
   }
 
   syntax-nix
@@ -173,4 +174,4 @@ with pkgs.vimPlugins; [
   vim-vsnip
 
   vim-ccls
-] ++ vimconf.extraPlugins
+]
