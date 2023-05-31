@@ -1,30 +1,25 @@
 # NeoVim Homemanager Module
 
-My way to keep synchronize my nvim config between different machines. But if you just get startet with nix and don't have a working nvim config, this might be helpful.
+Module providing extensive neovim configuration. For everyone who doesn't want to start configuring neovim from scratch. Custom configuration can be added using the [HomeManager API](https://nix-community.github.io/home-manager/options.html).
 
-Mind that only including this Module into your [HomeManager](https://github.com/nix-community/home-manager) configuration won't work, since this module is expecting an attribute for extra configuration (currently only the colorscheme). I will provide a documentation for this configuration, but there is no guarantee for it to be up-to-date.
+## Quick start:
+- Include the module into your `homeConfiguration`.
+- Set `programs.neovim.baseConfiguration.enable = true` somewhere in your configuration.
 
-## Configuration
+## Configuration options
+
+For up-to-date configuration options check [module.nix](https://github.com/Martin-Lndbl/nix-neovim-module/blob/master/module.nix).
+
+- Only few configuration options are provided for the preconfigured part, since adding onto this configuration can be done by using the HomeManager API.  
+- Change the `mapleader` with: `programs.neovim.baseConfiguration.leader`
+- Change the `colorscheme` with `programs.neovim.baseConfiguration.colorscheme`
 
 ### Example configuration
-Pass this attribute set as `extraSpecialArgs` to the `neovim.homeManagerModules.default` module.
+Paste this code somewhere into your HomeManager configuration.
 ```nix
-extraSpecialArgs = {
-  vimconf = {
-    leader = ",";
-    colorscheme = "spacecamp"; 
-    extraPlugins = with pkgs.vimPlugins; [ awesome-vim-colorschemes ];
-  };
+programs.neovim.baseConfiguration = {
+  enable = true;
+  leader = "l";
+  colorscheme = "spacecamp_transparent"; 
 };
 ```
-
-### Configuration options
-- `leader: string`
-    - Custom mapleader.
-- `colorscheme: string`
-    - Vim colorscheme. 
-    - Preinstalled: `[ "spacecamp" "spacecamp_lite" "spacecamp_transparent" ]`
-    - See `extraPlugins` to add yours.
-- `extraPlugins: list`
-    - Add more plugins.
-    
