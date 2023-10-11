@@ -4,7 +4,7 @@
 }:
 
 let
-  syntax-nix = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+  syntax-nix = pkgs.vimUtils.buildVimPlugin rec {
     pname = "syntax-nix";
     version = "7d23e97d13c40fcc6d603b291fe9b6e5f92516ee";
     src = pkgs.fetchFromGitHub {
@@ -15,7 +15,7 @@ let
     };
   };
 
-  diff-fold = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+  diff-fold = pkgs.vimUtils.buildVimPlugin rec {
     pname = "diff-fold";
     version = "48b4505c1b6f14ceb4e4be732aad337147ef36cd";
     src = pkgs.fetchFromGitHub {
@@ -27,7 +27,7 @@ let
   };
 
 
-  vdebug = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+  vdebug = pkgs.vimUtils.buildVimPlugin rec {
     pname = "vdebug";
     version = "v2.0.0";
     src = pkgs.fetchFromGitHub {
@@ -38,7 +38,7 @@ let
     };
   };
 
-  spacecamp = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+  spacecamp = pkgs.vimUtils.buildVimPlugin rec {
     pname = "spacecamp";
     version = "efe16a90234ae4c7714412d16f36af34284af321";
     src = pkgs.fetchFromGitHub {
