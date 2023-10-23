@@ -106,7 +106,7 @@ with config.programs.neovim;
       "java"
       "toml"
       "yaml"
-      "latex"
+      # "latex"
     ];
   }
 
