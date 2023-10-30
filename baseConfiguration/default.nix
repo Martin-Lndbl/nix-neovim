@@ -18,8 +18,6 @@ with config.programs.neovim.baseConfiguration;
     set undodir=$HOME/.tmp/undo
     set undolevels=1000
     set undoreload=1000
-
-    colorscheme ${colorscheme}
   '';
 
   extraLuaConfig = ''

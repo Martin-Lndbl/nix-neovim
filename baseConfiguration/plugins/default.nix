@@ -149,7 +149,12 @@ with config.programs.neovim;
   vim-css-color
 
   # Color scheme
-  spacecamp
+  {
+    plugin = nvim-base16;
+    type = "lua";
+    config = builtins.readFile
+      (import ./nvim-base16.nix { inherit pkgs config; });
+  }
 
   # Native nvim Language-Server
   {

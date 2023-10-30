@@ -15,7 +15,7 @@ with lib;
     colorscheme = mkOption {
       description = "Vim colorscheme";
       type = types.str;
-      default = "spacecamp";
+      default = "base16-colorscheme";
       example = "spacecamp_transparent";
     };
   };
