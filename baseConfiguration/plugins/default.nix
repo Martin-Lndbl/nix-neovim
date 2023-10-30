@@ -38,17 +38,6 @@ let
     };
   };
 
-  spacecamp = pkgs.vimUtils.buildVimPlugin rec {
-    pname = "spacecamp";
-    version = "efe16a90234ae4c7714412d16f36af34284af321";
-    src = pkgs.fetchFromGitHub {
-      owner = "Martin-Lndbl";
-      repo = pname;
-      rev = version;
-      sha256 = "sha256-I/oeZ+07KjMR8rqGk2+D7XeINk8bOP0quOSsuoatMLY=";
-    };
-  };
-
   tree-sitter-languages = languages: builtins.foldl'
     (
       acc: new:
