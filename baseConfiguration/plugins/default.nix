@@ -47,7 +47,8 @@ let
       rev = version;
       sha256 = "sha256-I/oeZ+07KjMR8rqGk2+D7XeINk8bOP0quOSsuoatMLY=";
     };
-  };
+
+ };
 
   tree-sitter-languages = languages: builtins.foldl'
     (
@@ -107,6 +108,7 @@ with config.programs.neovim;
       "toml"
       "yaml"
       # "latex"
+      "r"
     ];
   }
 

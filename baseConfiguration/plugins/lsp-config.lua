@@ -71,6 +71,10 @@ require('lspconfig')['ccls'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
+require('lspconfig')['r_language_server'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
 require('lspconfig')['texlab'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
