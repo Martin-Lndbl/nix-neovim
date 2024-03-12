@@ -1,3 +1,8 @@
+> [!WARNING]
+> This is out of date and might not work with newer nixpkgs versions.
+> My current NeoVim config can be found [here](https://github.com/Martin-Lndbl/nixos-config/tree/master/hm/programs/nvim).
+> An up-to-date module does not exist since it defies the purpose of modules.
+
 # NeoVim Homemanager Module
 
 Module providing extensive neovim configuration. For everyone who doesn't want to start configuring neovim from scratch. Custom configuration can be added using the [HomeManager API](https://nix-community.github.io/home-manager/options.html).
